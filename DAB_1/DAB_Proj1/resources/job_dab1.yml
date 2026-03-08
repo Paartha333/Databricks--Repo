@@ -1,0 +1,17 @@
+resources:
+  jobs:
+    job_dab_proj1:
+      name: job_dab_proj1
+      tasks:
+        - task_key: bronze1
+          notebook_task:
+            notebook_path: ../src/load_bronze1.ipynb
+            source: WORKSPACE
+      queue:
+        enabled: true
+      parameters:
+        - name: catalog
+          default: ${var.catalog}
+        - name: schema
+          default: ${var.schema}
+      performance_target: PERFORMANCE_OPTIMIZED

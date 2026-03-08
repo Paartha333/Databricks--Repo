@@ -1,0 +1,22 @@
+# The main pipeline for DAB_Proj2
+resources:
+  pipelines:
+    pipeline_dab_etl_pipeline:
+      name: dab_etl_pipeline
+      libraries:
+        - glob:
+            include: ../src/dab_etl_pipeline/transformations/**
+      schema: default
+      continuous: false
+      development: false
+      photon: true
+      channel: CURRENT
+      catalog: workspace
+      serverless: true
+      root_path: ../src/dab_etl_pipeline
+
+      environment:
+        dependencies:
+          # We include every dependency defined by pyproject.toml by defining an editable environment
+          # that points to the folder where pyproject.toml is deployed.
+          - --editable ${workspace.file_path}

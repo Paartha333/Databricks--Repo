@@ -1,0 +1,11 @@
+resources:
+  jobs:
+    job_dab_etl_pipeline:
+      name: job_dab_etl_pipeline
+      tasks:
+        - task_key: Task_pipeline
+          pipeline_task:
+            pipeline_id: 56a51d1a-3915-4b74-8e79-6900b5df4bfb
+      queue:
+        enabled: true
+      performance_target: PERFORMANCE_OPTIMIZED
